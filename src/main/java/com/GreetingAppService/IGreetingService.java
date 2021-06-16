@@ -1,6 +1,6 @@
 package com.GreetingAppService;
 
-import java.awt.List;
+import java.util.List;
 
 import com.GreetingAppModel.Greeting;
 import com.GreetingAppModel.User;

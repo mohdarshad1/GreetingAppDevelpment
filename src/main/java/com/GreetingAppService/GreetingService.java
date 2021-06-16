@@ -1,5 +1,6 @@
 package com.GreetingAppService;
 
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,7 @@ public class GreetingService implements IGreetingService {
 	@Override
 	public String deleteGreeting(long id) {
 		// TODO Auto-generated method stub
-		return null;
+		greetingRepository.deleteById(id);
+		return "Deleted Successfully";
 	}
 }
