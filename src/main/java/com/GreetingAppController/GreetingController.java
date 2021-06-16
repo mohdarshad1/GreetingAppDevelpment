@@ -1,6 +1,8 @@
 package com.GreetingAppController;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,6 +27,7 @@ import com.GreetingAppService.IGreetingService;
  * @Autowired annotation in spring automatically injects the dependent beans into the associated references of a POJO class. 
  * This annotation will inject the dependent beans by matching the data-type 
 */
+
 @RestController
 @RequestMapping("/greeting")
 public class GreetingController {
@@ -58,4 +61,10 @@ public class GreetingController {
 			@RequestParam(value = "name", defaultValue = "World") String name) {
 		return new Greeting(id, String.format(template, name));
 	}
+
+	@PutMapping("/put")
+	public Greeting updateGreeting(@RequestParam(value = "id") long id,
+			@RequestParam(value = "message", defaultValue = "")String message) {
+		return greetingService.updateGreeting(id, message);		
+	}	
 }
